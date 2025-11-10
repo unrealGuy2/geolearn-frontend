@@ -1,0 +1,284 @@
+/* --- GeoLearn Dashboard Theme (Light Mode) --- */
+:root {
+    --color-bg-light: #F4F7FC;       /* Light blue/gray background */
+    --color-card-white: #FFFFFF;     /* Pure white for cards */
+    --color-sidebar: #FFFFFF;        /* White sidebar */
+    --color-text-dark: #222B45;      /* Main dark text */
+    --color-text-light: #8F9BB3;     /* Light gray text */
+    --color-accent-green: #00E096;   /* Bright green for "Completed" */
+    --color-accent-dark: #222B45;   /* Dark buttons */
+    --color-accent-blue: #3366FF;    /* Blue for icons/links */
+    --color-border: #EDF1F7;         /* Light border for cards */
+}
+
+/* --- Main Dashboard Layout --- */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+}
+
+/* --- Dashboard Sidebar --- */
+.dashboard-sidebar {
+    width: 16rem; /* 256px */
+    background-color: var(--color-sidebar);
+    padding: 2rem 1.5rem;
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 2rem;
+    text-decoration: none;
+}
+
+.sidebar-menu-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--color-text-light);
+    transition: all 0.2s ease;
+}
+
+.sidebar-link.active,
+.sidebar-link:hover {
+    background-color: var(--color-accent-green);
+    color: white;
+}
+
+.sidebar-upgrade-card {
+    margin-top: auto; /* Pushes to the bottom */
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(145deg, #434343, #000000);
+    color: white;
+    text-align: center;
+}
+
+/* --- Dashboard Main Content Area --- */
+.dashboard-main {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* --- Dashboard Header --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.dashboard-header-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.dashboard-header-button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-accent-dark);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dashboard-header-button:hover {
+    background-color: #4A5568;
+}
+
+/* --- Metric Cards --- */
+.metric-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    background-color: var(--color-card-white);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.metric-card h3 {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+}
+
+.metric-card p {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+/* --- Main Content Cards (Assignments/Courses) --- */
+.content-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.content-section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.content-card-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.content-card-item {
+    background-color: var(--color-card-white);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content-card-details h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.content-card-details p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+.content-card-button {
+    padding: 0.5rem 1rem;
+    background-color: var(--color-accent-green);
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+
+/* --- Light Theme Form/Input Styles --- */
+.dashboard-main .form-label {
+    display: block;
+    font-size: 0.875rem; 
+    font-weight: 600; 
+    color: var(--color-text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-main .form-input {
+    appearance: none;
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem; 
+    background-color: var(--color-bg-light); 
+    color: var(--color-text-dark);
+    box-shadow: none; 
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.dashboard-main .form-input:focus {
+    border-color: var(--color-accent-blue);
+    background-color: var(--color-card-white);
+}
+
+.dashboard-main .form-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.75rem 1rem; 
+    border: none;
+    border-radius: 0.5rem; 
+    font-size: 1rem; 
+    font-weight: 600; 
+    color: white;
+    background-color: var(--color-accent-dark); 
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dashboard-main .form-button:hover {
+    background-color: #4A5568;
+}
+
+/* --- USER LIST STYLES (FIX IS HERE) --- */
+.user-list-header {
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr 1fr;
+    padding: 0 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.user-list-item {
+    background-color: var(--color-card-white);
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr 1fr; /* 4 columns: Name, Email, Role, Level */
+    align-items: center;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-dark);
+}
+
+.user-list-item p {
+    font-size: 0.9rem;
+    margin: 0;
+    word-wrap: break-word; /* Prevents long emails from breaking layout */
+}
+
+.user-list-item .font-bold {
+    font-weight: 600;
+}
+
+.user-list-item .text-light {
+    color: var(--color-text-light);
+    text-transform: capitalize;
+}
