@@ -16,6 +16,18 @@ function getAuthToken() {
     return localStorage.getItem('auth_token');
 }
 
+// --- NEW GREETING FUNCTION ---
+function getGreeting() {
+    const hour = new Date().getHours();
+    if (hour < 12) {
+        return "Good morning";
+    } else if (hour < 18) {
+        return "Good afternoon";
+    } else {
+        return "Good evening";
+    }
+}
+
 export default function DashboardPage() {
     const [user, setUser] = useState(null);
     const [materials, setMaterials] = useState([]);
@@ -112,7 +124,8 @@ export default function DashboardPage() {
             {/* --- Dashboard Header --- */}
             <header className="dashboard-header">
                 <h1 className="dashboard-header-title">
-                    Good afternoon, {user.full_name.split(' ')[0]}!
+                    {/* --- GREETING IS NOW DYNAMIC --- */}
+                    {getGreeting()}, {user.full_name.split(' ')[0]}!
                 </h1>
                 {/* Show button to admins and lecturers */}
                 {(user.role === 'admin' || user.role === 'lecturer') && (
