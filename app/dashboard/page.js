@@ -9,7 +9,7 @@ import '@/app/DashboardStyles.css';
 import DashboardLayout from '@/components/DashboardLayout'; 
 
 // --- Configuration ---
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'; 
 
 // --- Helper functions ---
 function getAuthToken() {
@@ -97,6 +97,15 @@ export default function DashboardPage() {
             </a>
         </motion.div>
     );
+    
+    // --- Handle Upload Button Click ---
+    const handleUploadClick = () => {
+        if (user.role === 'admin') {
+            router.push('/admin/upload'); // Admin goes to admin page
+        } else {
+            router.push('/upload'); // Lecturer goes to lecturer page
+        }
+    };
 
     return (
         <DashboardLayout user={user}>
@@ -105,12 +114,15 @@ export default function DashboardPage() {
                 <h1 className="dashboard-header-title">
                     Good afternoon, {user.full_name.split(' ')[0]}!
                 </h1>
-                <button 
-                    onClick={() => router.push('/admin/upload')} 
-                    className="dashboard-header-button"
-                >
-                    Start new upload
-                </button>
+                {/* Show button to admins and lecturers */}
+                {(user.role === 'admin' || user.role === 'lecturer') && (
+                    <button 
+                        onClick={handleUploadClick} 
+                        className="dashboard-header-button"
+                    >
+                        Start new upload
+                    </button>
+                )}
             </header>
 
             {/* --- Metric Cards --- */}
@@ -124,8 +136,6 @@ export default function DashboardPage() {
                     <p>{courses}</p>
                 </div>
                 
-                {/* --- FIX IS HERE --- */}
-                {/* Show Level for Student, show Role for Admin/Lecturer */}
                 <div className="metric-card">
                     {user.role === 'student' ? (
                         <>
@@ -139,8 +149,6 @@ export default function DashboardPage() {
                         </>
                     )}
                 </div>
-                {/* --- END FIX --- */}
-
             </div>
 
             {/* --- Main Content Section --- */}
