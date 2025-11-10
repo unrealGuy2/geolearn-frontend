@@ -15,7 +15,7 @@ export default function StudentLayout({ children, user }) {
     // --- Student Sidebar/Navigation (Dark Theme) ---
     return (
         // FIX: The main background is now LIGHT (--color-secondary)
-        <div className="flex min-h-screen" style={{ backgroundColor: 'var(--color-secondary)' }}> 
+        <div className="flex min-h-screen" style={{ backgroundColor: 'var(--color-bg-light)' }}> 
             {/* Sidebar (Stays Dark) */}
             <div className="admin-sidebar-dark shadow-lg">
                 <h2 className="admin-sidebar-header-dark" title="GeoLearn">G.</h2>
@@ -40,7 +40,7 @@ export default function StudentLayout({ children, user }) {
             </div>
 
             {/* Main Content Area (Stays Light) */}
-            <main className="flex-1 p-8 text-white"> 
+            <main className="flex-1 p-8 text-dark" style={{ color: 'var(--color-text-dark)' }}> 
                 {children}
             </main>
         </div>

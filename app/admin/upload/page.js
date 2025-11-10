@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 import '@/app/DashboardStyles.css'; // <-- USE THE NEW DASHBOARD STYLES
 
-const API_URL = 'http://127.0.0.1:8000'; 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
 function getAuthToken() { return localStorage.getItem('auth_token'); }
 
 // --- This is the REAL data you fetched ---
